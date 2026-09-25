@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude
-# Using $(PWD) ensures the compiler always finds the correct lib directory path
-LDFLAGS = -L$(PWD)/lib -lmyutils
+# -Wl,-rpath embeds the runtime library path directly into the executable
+LDFLAGS = -L$(PWD)/lib -lmyutils -Wl,-rpath,$(PWD)/lib
 
 export CC CFLAGS LDFLAGS
 
